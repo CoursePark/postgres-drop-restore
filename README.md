@@ -4,7 +4,7 @@ Cron based drop and restore of a target database with data from a source databas
 
 ## Usage
 
-Typically this image is instatiated as a container among many others and would have the responsibility of setting a target database to match that of a source database at a particular time of day.
+Typically this image is instantiated as a container among many others and would have the responsibility of setting a target database to match that of a source database at a particular time of day.
 
 For instance to have a QC environment get a nightly refresh of data from production.
 
