@@ -25,4 +25,4 @@ With a `docker-compose` set up, this might look like the following:
 
 At 06:00 UTC the source database is `pg_dump`ed and `pg_restor`ed to the target database. **This will have some outage time**, as long as it takes for `DROP DATABASE`, `CREATE DATABASE`, and `pg_restore` take to process.
 
-***Note**: the usual cron tricks apply to the hour and minute env values. For instance setting `PG_DROP_RESTORE_CRON_HOUR` to `1/4` and `PG_DROP_RESTORE_CRON_MINUTE` to `0`, will trigger once every 4 hours.*
+***Note**: the usual cron tricks apply to the hour and minute env values. For instance setting `PG_DROP_RESTORE_CRON_HOUR` to `*/4` and `PG_DROP_RESTORE_CRON_MINUTE` to `0`, will trigger once every 4 hours.*
