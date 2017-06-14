@@ -16,13 +16,13 @@ With a `docker-compose` set up, this might look like the following:
   postgres-drop-restore:
     image: bluedrop360/postgres-drop-restore
     environment:
-        PG_DROP_RESTORE_CRON_HOUR: 6
-        PG_DROP_RESTORE_CRON_MINUTE: 0
-        PG_DROP_RESTORE_SOURCE_DATABASE_URL: postgres://...
-        PG_DROP_RESTORE_TARGET_DATABASE_URL: postgres://...
+        CRON_HOUR: 6
+        CRON_MINUTE: 0
+        SOURCE_DATABASE_URL: postgres://...
+        TARGET_DATABASE_URL: postgres://...
     restart: always
 ```
 
 At 06:00 UTC the source database is `pg_dump`ed and `pg_restor`ed to the target database. **This will have some outage time**, as long as it takes for `DROP DATABASE`, `CREATE DATABASE`, and `pg_restore` take to process.
 
-***Note**: the usual cron tricks apply to the hour and minute env values. For instance setting `PG_DROP_RESTORE_CRON_HOUR` to `*/4` and `PG_DROP_RESTORE_CRON_MINUTE` to `0`, will trigger once every 4 hours.*
+***Note**: the usual cron tricks apply to the hour and minute env values. For instance setting `CRON_HOUR` to `*/4` and `CRON_MINUTE` to `0`, will trigger once every 4 hours.*
