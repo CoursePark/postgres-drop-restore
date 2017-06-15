@@ -13,6 +13,6 @@ if echo $dropResult | grep "other session using the database" -> /dev/null; then
 fi
 createResult=$(echo "CREATE DATABASE $targetDbName;" | psql $targetDbRootUrl 2>&1)
 echo "postgres drop restore - fill target database with dump"
-pg_restore -c -d $TARGET_DATABASE_URL $tempFile
+pg_restore --no-owner -d $TARGET_DATABASE_URL $tempFile
 rm $tempFile
 echo "postgres drop restore - complete"
